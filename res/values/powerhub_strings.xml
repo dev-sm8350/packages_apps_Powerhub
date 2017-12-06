@@ -383,4 +383,8 @@
     <string name="battery_light_full_color">Almost fully charged</string>
     <string name="battery_light_reallyfull_color">Fully charged</string>
 
+    <!-- Hardware keys -->
+    <string name="hardware_keys_category">Hardware navigation buttons</string>
+    <string name="hardware_keys_disable_title">Disable hardware buttons</string>
+
 </resources>

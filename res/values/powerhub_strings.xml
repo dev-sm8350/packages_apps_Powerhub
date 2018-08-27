@@ -276,4 +276,9 @@
     <!-- NavBar Inverse -->
     <string name="navigation_bar_inverse_title">Invert 3 button navigation bar</string>
 
+    <!-- Screen off animation -->
+    <string name="screen_off_animation_title">Screen off animation</string>
+    <string name="screen_off_animation_crt">CRT</string>
+    <string name="screen_off_animation_scale">Scale</string>
+
 </resources>

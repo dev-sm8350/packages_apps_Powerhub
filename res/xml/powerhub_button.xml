@@ -28,6 +28,15 @@
         android:key="volume_category"
         android:title="@string/volume_category">
 
+     <com.power.hub.preferences.SystemSettingListPreference
+        android:key="volume_key_cursor_control"
+        android:summary="%s"
+        android:title="@string/volume_key_cursor_control_title"
+        android:dialogTitle="@string/volume_key_cursor_control_title"
+        android:entries="@array/volume_key_cursor_control_entries"
+        android:entryValues="@array/volume_key_cursor_control_values"
+        android:defaultValue="0" />
+
         <!-- Volume panel to left -->
     <com.power.hub.preferences.SecureSettingSwitchPreference
        android:key="volume_panel_on_left"

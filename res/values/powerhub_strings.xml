@@ -307,4 +307,7 @@
     <string name="lockscreen_albumart_filter_blur">Blur</string>
     <string name="lockscreen_albumart_filter_grayblur">Grayscale and blurred</string>
 
+    <!-- Tiles on secure keyguard -->
+    <string name="use_tiles_on_secure_keyguard_title">Require unlocking to use sensitive tiles</string>
+    <string name="use_tiles_on_secure_keyguard_summary">Ask to unlock lockscreen when using sensitive tiles</string>
 </resources>

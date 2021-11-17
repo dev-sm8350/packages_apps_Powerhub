@@ -26,7 +26,13 @@
 
     </PreferenceCategory>
 
-	<PreferenceCategory
+    <Preference
+        android:key="traffic"
+        android:fragment="com.power.hub.fragments.Traffic"
+        android:title="@string/traffic_title"
+        android:summary="@string/traffic_summary" />
+
+    <PreferenceCategory
         android:key="statusbar_icons"
         android:title="@string/sb_icons">
 

@@ -58,6 +58,10 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
+			
+	private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
+	
+	Preference mAODPref;
 
     private static final String UDFPS_CATEGORY = "udfps_category";
 
@@ -86,11 +90,32 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
             prefSet.removePreference(mUdfpsCategory);
         }
+		
+	mAODPref = findPreference(AOD_SCHEDULE_KEY);
+        updateAlwaysOnSummary();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        updateAlwaysOnSummary();
+    }
+
+    private void updateAlwaysOnSummary() {
+        if (mAODPref == null) return;
+        int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
+                Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, 0, UserHandle.USER_CURRENT);
+        switch (mode) {
+            case 0:
+                mAODPref.setSummary(R.string.disabled);
+                break;
+            case 1:
+                mAODPref.setSummary(R.string.night_display_auto_mode_twilight);
+                break;
+            case 2:
+                mAODPref.setSummary(R.string.night_display_auto_mode_custom);
+                break;
+        }
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {

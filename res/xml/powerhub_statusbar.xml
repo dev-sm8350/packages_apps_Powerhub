@@ -56,6 +56,18 @@
         android:summary="@string/double_tap_to_sleep_statusbar_summary"
         android:defaultValue="true" />
 
+    <com.voltage.support.preferences.SecureSettingSwitchPreference
+        android:key="enable_camera_privacy_indicator"
+        android:title="@string/mic_camera_privacy_indicator_title"
+        android:summary="@string/mic_camera_privacy_indicator_summary"
+        android:defaultValue="true" />
+
+    <com.voltage.support.preferences.SecureSettingSwitchPreference
+        android:key="enable_location_privacy_indicator"
+        android:title="@string/location_privacy_indicator_title"
+        android:summary="@string/location_privacy_indicator_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="quick_settings_brighness_category"
         android:title="@string/qs_brightness_slider_category">
@@ -66,14 +78,14 @@
             android:title="@string/qs_show_brightness_slider_title"
             android:entries="@array/qs_show_brightness_slider_entries"
             android:entryValues="@array/qs_show_brightness_slider_values"
-            android:defaultValue="2" />
+            android:defaultValue="1" />
 
         <com.voltage.support.preferences.SecureSettingListPreference
             android:key="qs_brightness_slider_position"
             android:title="@string/qs_brightness_slider_position_title"
             android:entries="@array/qs_brightness_slider_position_entries"
             android:entryValues="@array/qs_brightness_slider_position_values"
-            android:defaultValue="1" />
+            android:defaultValue="0" />
 
         <com.voltage.support.preferences.SecureSettingSwitchPreference
             android:key="qs_show_auto_brightness"

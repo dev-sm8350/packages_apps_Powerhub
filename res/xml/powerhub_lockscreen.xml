@@ -18,16 +18,17 @@
     android:title="@string/lockscreen_title"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
 	
-	<PreferenceCategory
-        android:title="@string/lockscreen_gesture_title">
-
         <com.voltage.support.preferences.SystemSettingSwitchPreference
             android:key="double_tap_sleep_lockscreen"
             android:title="@string/double_tap_to_sleep_lockscreen_title"
             android:summary="@string/double_tap_to_sleep_lockscreen_summary"
             android:defaultValue="true" />
 
-    </PreferenceCategory>
+    	<com.voltage.support.preferences.SystemSettingSwitchPreference
+            android:key="enable_ripple_effect"
+            android:title="@string/enable_fingerprint_ripple_effect_title"
+            android:summary="@string/enable_fingerprint_ripple_effect_summary"
+            android:defaultValue="true" />
 	
         <PreferenceCategory
         android:title="@string/weather_category_title">

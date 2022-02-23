@@ -272,5 +272,8 @@
 	<!-- Power menu on lockscreen -->
     <string name="lockscreen_power_menu_disabled_title">Disable power menu on lock screen</string>
     <string name="lockscreen_power_menu_disabled_summary">This will only disable the power menu on secure lock screens</string>
-	
+
+    <!-- NavBar Inverse -->
+    <string name="navigation_bar_inverse_title">Invert 3 button navigation bar</string>
+
 </resources>

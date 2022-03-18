@@ -47,15 +47,37 @@ import java.util.Collections;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
+
+    private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
+
+    private SystemSettingListPreference mStatusBarClock;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.powerhub_statusbar);
 		
-		ContentResolver resolver = getActivity().getContentResolver();
+	PreferenceScreen prefSet = getPreferenceScreen();
+	final Context mContext = getActivity().getApplicationContext();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
-        PreferenceScreen prefSet = getPreferenceScreen();
+		mStatusBarClock =
+                (SystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+
+        // Adjust status bar preferences for RTL
+        if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+            if (VoltageUtils.hasNotch(mContext)) {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch_rtl);
+            } else {
+                mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_rtl);
+                mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_rtl);
+            }
+        } else if (VoltageUtils.hasNotch(mContext)) {
+            mStatusBarClock.setEntries(R.array.status_bar_clock_position_entries_notch);
+            mStatusBarClock.setEntryValues(R.array.status_bar_clock_position_values_notch);
+        }
     }
 
     @Override

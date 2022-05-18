@@ -273,6 +273,8 @@
 
     <!-- NavBar Inverse -->
     <string name="navigation_bar_inverse_title">Invert 3 button navigation bar</string>
+    <string name="navigation_bar_compact_layout_title">Compact layout</string>
+    <string name="navigation_bar_compact_layout_summary">Use a compact layout in the navigation bar</string>
 
     <!-- Screen off animation -->
     <string name="screen_off_animation_title">Screen off animation</string>

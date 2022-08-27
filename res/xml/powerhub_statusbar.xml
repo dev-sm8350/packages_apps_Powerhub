@@ -32,6 +32,12 @@
         android:title="@string/traffic_title"
         android:summary="@string/traffic_summary" />
 
+    <Preference
+        android:key="battery_settings"
+        android:fragment="com.power.hub.fragments.StatusBarBattery"
+        android:title="@string/battery_style_title"
+        android:summary="@string/battery_style_summary" />
+
     <PreferenceCategory
         android:key="statusbar_icons"
         android:title="@string/sb_icons">

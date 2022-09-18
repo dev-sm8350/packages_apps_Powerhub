@@ -57,13 +57,12 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.powerhub_statusbar);
-		
-	PreferenceScreen prefSet = getPreferenceScreen();
-	final Context mContext = getActivity().getApplicationContext();
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final Context mContext = getActivity().getApplicationContext();
         final ContentResolver resolver = getActivity().getContentResolver();
 
-		mStatusBarClock =
-                (SystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
+        mStatusBarClock = (SystemSettingListPreference) findPreference(STATUS_BAR_CLOCK_STYLE);
 
         // Adjust status bar preferences for RTL
         if (getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
@@ -85,35 +84,37 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         return false;
     }
-	
+
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_statusbar;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_statusbar;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            return keys;
+        }
     };
+
+    public static StatusBarSettings getInstance() {
+        return new StatusBarSettings();
+    }
 
 }

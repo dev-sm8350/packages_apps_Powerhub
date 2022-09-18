@@ -72,8 +72,8 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mPhotosSpoof = (SwitchPreference) findPreference(KEY_PHOTOS_SPOOF);
         mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
         mPhotosSpoof.setOnPreferenceChangeListener(this);
-		
-		Resources res = null;
+
+        Resources res = null;
         Context ctx = getContext();
         float density = Resources.getSystem().getDisplayMetrics().density;
 
@@ -99,35 +99,36 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         }
         return false;
     }
-	
 
     @Override
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_misc;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_misc;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            return keys;
+        }
     };
+
+    public static MiscSettings getInstance() {
+        return new MiscSettings();
+    }
 }

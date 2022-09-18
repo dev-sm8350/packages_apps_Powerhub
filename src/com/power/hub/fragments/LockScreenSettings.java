@@ -58,16 +58,16 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class LockScreenSettings extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
-			
-	private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
-	
-	static final int MODE_DISABLED = 0;
+
+    private static final String AOD_SCHEDULE_KEY = "always_on_display_schedule";
+
+    static final int MODE_DISABLED = 0;
     static final int MODE_NIGHT = 1;
     static final int MODE_TIME = 2;
     static final int MODE_MIXED_SUNSET = 3;
     static final int MODE_MIXED_SUNRISE = 4;
-	
-	Preference mAODPref;
+
+    Preference mAODPref;
 
     private static final String UDFPS_CATEGORY = "udfps_category";
 
@@ -81,8 +81,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         ContentResolver resolver = getActivity().getContentResolver();
         final PreferenceScreen prefSet = getPreferenceScreen();
         Resources resources = getResources();
-		
-		Resources res = null;
+
+        Resources res = null;
         Context ctx = getContext();
         float density = Resources.getSystem().getDisplayMetrics().density;
 
@@ -96,8 +96,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
         if (!UdfpsUtils.hasUdfpsSupport(getContext())) {
             prefSet.removePreference(mUdfpsCategory);
         }
-		
-	mAODPref = findPreference(AOD_SCHEDULE_KEY);
+
+        mAODPref = findPreference(AOD_SCHEDULE_KEY);
         updateAlwaysOnSummary();
     }
 
@@ -108,7 +108,8 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     }
 
     private void updateAlwaysOnSummary() {
-        if (mAODPref == null) return;
+        if (mAODPref == null)
+            return;
         int mode = Settings.Secure.getIntForUser(getActivity().getContentResolver(),
                 Settings.Secure.DOZE_ALWAYS_ON_AUTO_MODE, 0, UserHandle.USER_CURRENT);
         switch (mode) {
@@ -140,30 +141,32 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_lockscreen;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_lockscreen;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            return keys;
+        }
     };
+
+    public static LockScreenSettings getInstance() {
+        return new LockScreenSettings();
+    }
 
 }

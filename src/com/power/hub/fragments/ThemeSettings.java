@@ -65,26 +65,26 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ThemeSettings extends DashboardFragment implements OnPreferenceChangeListener {
-			
-	public static final String TAG = "ThemeSettings";
+
+    public static final String TAG = "ThemeSettings";
     static final int DEFAULT_QS_PANEL_COLOR = 0xffffffff;
-	static final int DEFAULT = 0xff1a73e8;
-	private Context mContext;
+    static final int DEFAULT = 0xff1a73e8;
+    private Context mContext;
 
     private IOverlayManager mOverlayService;
     private UiModeManager mUiModeManager;
-	
-	@Override
+
+    @Override
     protected String getLogTag() {
         return TAG;
     }
-	
-	@Override
+
+    @Override
     protected int getPreferenceScreenResId() {
         return R.xml.powerhub_theme;
     }
-	
-	@Override
+
+    @Override
     protected List<AbstractPreferenceController> createPreferenceControllers(Context context) {
         return buildPreferenceControllers(context, getSettingsLifecycle(), this);
     }
@@ -95,21 +95,21 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
         final List<AbstractPreferenceController> controllers = new ArrayList<>();
         return controllers;
     }
-	
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
 
         PreferenceScreen prefScreen = getPreferenceScreen();
         ContentResolver resolver = getActivity().getContentResolver();
-		final Resources res = getResources();
-		mContext =  getActivity();
-        }
+        final Resources res = getResources();
+        mContext = getActivity();
+    }
 
     public boolean isAvailable() {
         return true;
     }
-	
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
@@ -120,29 +120,31 @@ public class ThemeSettings extends DashboardFragment implements OnPreferenceChan
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_theme;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_theme;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            return keys;
+        }
     };
+
+    public static ThemeSettings getInstance() {
+        return new ThemeSettings();
+    }
 }

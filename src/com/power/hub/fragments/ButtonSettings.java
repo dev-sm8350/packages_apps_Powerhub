@@ -49,6 +49,7 @@ import android.provider.SearchIndexableResource;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ButtonSettings extends ActionFragment implements OnPreferenceChangeListener {
 
@@ -63,7 +64,7 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
     private static final String CATEGORY_APPSWITCH = "app_switch_key";
     private static final String CATEGORY_VOLUME = "volume_keys";
     private static final String CATEGORY_POWER = "power_key";
-     // Masks for checking presence of hardware keys.
+    // Masks for checking presence of hardware keys.
     // Must match values in frameworks/base/core/res/res/values/config.xml
     public static final int KEY_MASK_HOME = 0x01;
     public static final int KEY_MASK_BACK = 0x02;
@@ -102,16 +103,16 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
             prefScreen.removePreference(hwkeyCat);
         }
 
-         // bits for hardware keys present on device
+        // bits for hardware keys present on device
         final int deviceKeys = getResources().getInteger(
                 com.android.internal.R.integer.config_deviceHardwareKeys);
-         // read bits for present hardware keys
+        // read bits for present hardware keys
         final boolean hasHomeKey = (deviceKeys & KEY_MASK_HOME) != 0;
         final boolean hasBackKey = (deviceKeys & KEY_MASK_BACK) != 0;
         final boolean hasMenuKey = (deviceKeys & KEY_MASK_MENU) != 0;
         final boolean hasAssistKey = (deviceKeys & KEY_MASK_ASSIST) != 0;
         final boolean hasAppSwitchKey = (deviceKeys & KEY_MASK_APP_SWITCH) != 0;
-         // load categories and init/remove preferences based on device
+        // load categories and init/remove preferences based on device
         // configuration
         final PreferenceCategory backCategory = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_BACK);
@@ -123,27 +124,27 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
                 .findPreference(CATEGORY_ASSIST);
         final PreferenceCategory appSwitchCategory = (PreferenceCategory) prefScreen
                 .findPreference(CATEGORY_APPSWITCH);
-         // back key
+        // back key
         if (!hasBackKey) {
             prefScreen.removePreference(backCategory);
         }
-         // home key
+        // home key
         if (!hasHomeKey) {
             prefScreen.removePreference(homeCategory);
         }
-         // App switch key (recents)
+        // App switch key (recents)
         if (!hasAppSwitchKey) {
             prefScreen.removePreference(appSwitchCategory);
         }
-         // menu key
+        // menu key
         if (!hasMenuKey) {
             prefScreen.removePreference(menuCategory);
         }
-         // search/assist key
+        // search/assist key
         if (!hasAssistKey) {
             prefScreen.removePreference(assistCategory);
         }
-         // let super know we can load ActionPreferences
+        // let super know we can load ActionPreferences
         onPreferenceScreenLoaded(ActionConstants.getDefaults(ActionConstants.HWKEYS));
 
         // load preferences first
@@ -183,30 +184,32 @@ public class ButtonSettings extends ActionFragment implements OnPreferenceChange
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_button;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_button;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            return keys;
+        }
     };
+
+    public static ButtonSettings getInstance() {
+        return new ButtonSettings();
+    }
 
 }

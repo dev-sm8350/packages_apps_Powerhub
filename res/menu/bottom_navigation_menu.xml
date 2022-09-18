@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+  <item
+      android:id="@+id/sb_settings"
+      android:enabled="true"
+      android:icon="@drawable/ic_powerhub_status_settings"
+      android:title="@string/statusbar_title"/>
+
+  <item
+      android:id="@+id/button_settings"
+      android:enabled="true"
+      android:icon="@drawable/ic_powerhub_button_settings"
+      android:title="@string/button_title"/>
+
+  <item
+      android:id="@+id/lockscreen_settings"
+      android:enabled="true"
+      android:icon="@drawable/ic_powerhub_lockscreen_settings"
+      android:title="@string/lockscreen_title"/>
+
+  <item
+      android:id="@+id/theme_settings"
+      android:enabled="true"
+      android:icon="@drawable/ic_powerhub_theme_settings"
+      android:title="@string/theme_title"/>
+
+  <item
+      android:id="@+id/misc_settings"
+      android:enabled="true"
+      android:icon="@drawable/ic_powerhub_misc_settings"
+      android:title="@string/misc_title"/>
+</menu>

@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
-public class NotificationSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener{
+public class NotificationSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
@@ -51,21 +51,6 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
         super.onCreate(icicle);
 
         addPreferencesFromResource(R.xml.powerhub_notifications);
-        ContentResolver resolver = getActivity().getContentResolver();
-        final PreferenceScreen prefSet = getPreferenceScreen();
-        final Resources res = getResources();
-		
-		PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
-        if (!Utils.isVoiceCapable(getActivity())) {
-                prefSet.removePreference(incallVibCategory);
-        }
-        
-        mChargingLeds = (Preference) findPreference("charging_light");
-        if (mChargingLeds != null
-                && !getResources().getBoolean(
-                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
-            prefSet.removePreference(mChargingLeds);
-        }
     }
 
     @Override
@@ -77,30 +62,28 @@ public class NotificationSettings extends SettingsPreferenceFragment implements 
     public int getMetricsCategory() {
         return MetricsProto.MetricsEvent.VOLTAGE;
     }
-	
-	/**
+
+    /**
      * For Search.
      */
 
-    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
+    public static final SearchIndexProvider SEARCH_INDEX_DATA_PROVIDER = new BaseSearchIndexProvider() {
 
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
-                        boolean enabled) {
-                    ArrayList<SearchIndexableResource> result =
-                            new ArrayList<SearchIndexableResource>();
-                    SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.powerhub_notifications;
-                    result.add(sir);
-                    return result;
-                }
+        @Override
+        public List<SearchIndexableResource> getXmlResourcesToIndex(Context context,
+                boolean enabled) {
+            ArrayList<SearchIndexableResource> result = new ArrayList<SearchIndexableResource>();
+            SearchIndexableResource sir = new SearchIndexableResource(context);
+            sir.xmlResId = R.xml.powerhub_notifications;
+            result.add(sir);
+            return result;
+        }
 
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    List<String> keys = super.getNonIndexableKeys(context);
-                    final Resources res = context.getResources();
-                    return keys;
-                }
+        @Override
+        public List<String> getNonIndexableKeys(Context context) {
+            List<String> keys = super.getNonIndexableKeys(context);
+            final Resources res = context.getResources();
+            return keys;
+        }
     };
 }

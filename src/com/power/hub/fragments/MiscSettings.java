@@ -36,6 +36,8 @@ import com.android.settings.SettingsPreferenceFragment;
 import com.power.hub.preferences.SystemSettingMasterSwitchPreference;
 import com.power.hub.preferences.SystemSettingListPreference;
 import com.power.hub.preferences.SecureSettingSwitchPreference;
+import com.power.hub.preferences.SystemSettingSeekBarPreference;
+import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
@@ -73,7 +75,7 @@ public class MiscSettings extends SettingsPreferenceFragment implements
         mPhotosSpoof.setChecked(SystemProperties.getBoolean(SYS_PHOTOS_SPOOF, true));
         mPhotosSpoof.setOnPreferenceChangeListener(this);
 
-        Resources res = null;
+        Resources res = getResources();
         Context ctx = getContext();
         float density = Resources.getSystem().getDisplayMetrics().density;
 
@@ -81,6 +83,18 @@ public class MiscSettings extends SettingsPreferenceFragment implements
             res = ctx.getPackageManager().getResourcesForApplication("com.android.systemui");
         } catch (NameNotFoundException e) {
             e.printStackTrace();
+        }
+
+        PreferenceCategory incallVibCategory = (PreferenceCategory) findPreference(INCALL_VIB_OPTIONS);
+        if (!Utils.isVoiceCapable(getActivity())) {
+            prefSet.removePreference(incallVibCategory);
+        }
+
+        mChargingLeds = (Preference) findPreference("charging_light");
+        if (mChargingLeds != null
+                && !getResources().getBoolean(
+                        com.android.internal.R.bool.config_intrusiveBatteryLed)) {
+            prefSet.removePreference(mChargingLeds);
         }
 
     }

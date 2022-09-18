@@ -42,10 +42,6 @@ import java.util.List;
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class NotificationSettings extends SettingsPreferenceFragment implements Preference.OnPreferenceChangeListener {
 
-    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
-
-    private Preference mChargingLeds;
-
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);

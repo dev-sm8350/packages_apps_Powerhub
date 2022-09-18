@@ -49,7 +49,7 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
-
+    private ListPreference mQuickPulldown;
     private SystemSettingListPreference mStatusBarClock;
 
     @Override
@@ -89,11 +89,11 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object objValue) {
         ContentResolver resolver = getActivity().getContentResolver();
         if (preference == mQuickPulldown) {
-            int value = Integer.parseInt((String) newValue);
+            int value = Integer.parseInt((String) objValue);
             Settings.System.putIntForUser(resolver,
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, value,
                     UserHandle.USER_CURRENT);
-            int index = mQuickPulldown.findIndexOfValue((String) newValue);
+            int index = mQuickPulldown.findIndexOfValue((String) objValue);
             mQuickPulldown.setSummary(
                     mQuickPulldown.getEntries()[index]);
             return true;

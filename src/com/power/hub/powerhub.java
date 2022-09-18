@@ -41,6 +41,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.view.MenuItem;
+import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -69,20 +70,22 @@ public class powerhub extends SettingsPreferenceFragment {
 
                 if (R.id.sb_settings == id)
                     fragmentClass = StatusBarSettings.class;
-                if (R.id.button_settings == id)
+                else if (R.id.button_settings == id)
                     fragmentClass = ButtonSettings.class;
-                if (R.id.lockscreen_settings == id)
+                else if (R.id.lockscreen_settings == id)
                     fragmentClass = LockScreenSettings.class;
-                if (R.id.theme_settings == id)
+                else if (R.id.theme_settings == id)
                     fragmentClass = ThemeSettings.class;
-                if (R.id.misc_settings == id)
+                else
                     fragmentClass = MiscSettings.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
+                    fragmentManager.beginTransaction().replace(R.id.frag_container, fragment).commit();
+                    Log.d(this.getClass().getName(), "onNavigationItemSelected: ");
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.d(this.getClass().getName(), e.getMessage());
                 }
-                fragmentManager.beginTransaction().replace(R.id.frag_container, fragment).commit();
                 return true;
             }
         });

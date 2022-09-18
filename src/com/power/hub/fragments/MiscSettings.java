@@ -13,6 +13,9 @@ import android.content.res.Resources;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceGroup;
+import androidx.preference.PreferenceViewHolder;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
 import com.power.hub.preferences.CustomSeekBarPreference;
@@ -41,9 +44,8 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import android.provider.SearchIndexableResource;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.android.internal.util.voltage.VoltageUtils;
+import com.power.hub.preferences.Utils;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class MiscSettings extends SettingsPreferenceFragment implements
@@ -54,9 +56,11 @@ public class MiscSettings extends SettingsPreferenceFragment implements
 
     private static final String SYS_PHOTOS_SPOOF = "persist.sys.pixelprops.gphotos";
     private static final String SYS_GAMES_SPOOF = "persist.sys.pixelprops.games";
+    private static final String INCALL_VIB_OPTIONS = "incall_vib_options";
 
     private SwitchPreference mGamesSpoof;
     private SwitchPreference mPhotosSpoof;
+    private Preference mChargingLeds;
 
     @Override
     public void onCreate(Bundle icicle) {

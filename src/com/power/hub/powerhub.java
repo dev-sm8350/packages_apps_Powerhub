@@ -65,7 +65,7 @@ public class powerhub extends SettingsPreferenceFragment {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 Fragment fragment = null;
-                Class fragmentClass;
+                Class fragmentClass = null;
                 int id = item.getItemId();
 
                 if (R.id.sb_settings == id)

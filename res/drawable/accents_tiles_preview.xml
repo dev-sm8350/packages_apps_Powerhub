@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2015-2020 AospExtended ROM
+<!--
+     Copyright (C) 2020 ProjectFluid
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,13 +14,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
 
-    <declare-styleable name="DialogSeekBar">
-        <attr name="minValue" format="float" />
-        <attr name="maxValue" format="float" />
-        <attr name="defaultQsValue" format="float" />
-        <attr name="digits" format="integer" />
-    </declare-styleable>
-
-</resources>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="314.44dp"
+                android:height="125dp" />
+        </shape>
+    </item>
+    <item android:drawable="@drawable/tiles_shape_preview" android:gravity="right"/>
+    <item android:drawable="@drawable/accent_elements_preview" android:gravity="left"/>
+</layer-list>

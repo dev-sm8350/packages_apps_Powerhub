@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <item
-            android:id="@+id/themes_category"
-            android:icon="@drawable/ic_themes_category"
-            android:title="@string/themes_category"
-            app:exb_color="@color/bottombar_active" />
             
     <item
             android:id="@+id/notifications_panel_category"

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024 VoltageOS
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+	<!--Powerhub-->
+	<color name="powerhub_status_settings_background">#c8b6ff</color>
+	<color name="powerhub_quick_settings_background">#d1ead4</color>
+	<color name="powerhub_theme_settings_background">#f9cfc6</color>
+	<color name="powerhub_button_settings_background">#c9dbff</color>
+	<color name="powerhub_animation_settings_background">#ffe2c9</color>
+	<color name="powerhub_lockscreen_settings_background">#c6eded</color>
+	<color name="powerhub_power_settings_background">#fde7c6</color>
+	<color name="powerhub_recent_settings_background">#ccf7e0</color>
+	<color name="powerhub_notification_settings_background">#ffc9e6</color>
+	<color name="powerhub_misc_settings_background">#dfedc6</color>
+        <color name="disabled_text_color">#66000000</color>
+ 	<color name="preview_container_border">@*android:color/accent_device_default_light</color>
+	<color name="white">#FFF</color>
+        <color name="google_grey700">#5f6368</color>
+        <color name="edit_background_base">@color/google_grey700</color>
+        <color name="option_border_default">@color/edit_background_base</color>
+</resources>

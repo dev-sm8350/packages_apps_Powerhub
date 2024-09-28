@@ -16,34 +16,43 @@
 <PreferenceScreen 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/powerhub_title" >
+    android:title=" " >
+
+    <PreferenceCategory
+        android:title="@string/powerhub_title"
+        android:layout="@layout/powerhub_preference_category">
+    </PreferenceCategory>
 
         <!-- Status Bar -->
-        <com.power.hub.preferences.powerhubPreference
+        <Preference
             android:key="statusbar_category"
             android:title="@string/statusbar_title"
             android:fragment="com.power.hub.fragments.StatusBarSettings"
+            settings:layout="@layout/powerhub_dashboard_preference_top"
             android:icon="@drawable/ic_powerhub_status_settings"/>
 
 	<!-- Themes -->
-        <com.power.hub.preferences.powerhubPreference
+        <Preference
             android:key="theme_category"
             android:title="@string/theme_title"
             android:fragment="com.power.hub.fragments.ThemeSettings"
+            settings:layout="@layout/powerhub_dashboard_preference_middle"
             android:icon="@drawable/ic_powerhub_theme_settings"/>
 
         <!-- Lock Screen -->
-        <com.power.hub.preferences.powerhubPreference
+        <Preference
             android:key="lockscreen_category"
             android:title="@string/lockscreen_title"
             android:fragment="com.power.hub.fragments.LockScreenSettings"
+            settings:layout="@layout/powerhub_dashboard_preference_middle"
             android:icon="@drawable/ic_powerhub_lockscreen_settings"/>
 
         <!-- Misc -->
-        <com.power.hub.preferences.powerhubPreference
+        <Preference
             android:key="misc_category"
             android:title="@string/misc_title"
             android:fragment="com.power.hub.fragments.MiscSettings"
+            settings:layout="@layout/powerhub_dashboard_preference_bottom"
             android:icon="@drawable/ic_powerhub_misc_settings"/>
 
 </PreferenceScreen>

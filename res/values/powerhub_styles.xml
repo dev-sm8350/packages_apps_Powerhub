@@ -17,9 +17,64 @@
 
 <resources>
 
-   <!-- FOD icon picker -->
-   <dimen name="fod_picker_item_margin">10dp</dimen>
-   <dimen name="fod_picker_item_size">100dp</dimen>
-   <dimen name="fod_picker_item_padding">20dp</dimen>
+    <!-- Text Styles -->
+    <style name="powerhubTextPrimary">
+        <item name="android:textSize">19sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamily</item>
+    </style>
+    <style name="powerhubTextPrimaryMedium" parent="powerhubTextPrimary">
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+    </style>
+    <style name="powerhubTextSecondary">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorSecondary</item>
+    </style>
+    <!-- Dashboard -->
+    <style name="powerhubDashboardPreferenceTop" parent="powerhubPreferenceTop">
+        <item name="android:layout_marginTop">@dimen/powerhub_pref_horizontal_padding</item>
+    </style>
+    <style name="powerhubDashboardPreferenceBottom" parent="powerhubPreferenceBottom">
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+    <style name="powerhubDashboardPreferenceFull" parent="powerhubPreferenceFull">
+        <item name="android:layout_marginTop">@dimen/powerhub_pref_horizontal_padding</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+    <style name="powerhubDashboardPreferenceFullAccent" parent="powerhubDashboardPreferenceFull">
+        <item name="android:background">@drawable/powerhub_preference_background_full_accent</item>
+    </style>
+    <style name="powerhubDashboardPreferencePhone" parent="powerhubDashboardPreferenceTop">
+        <item name="android:background">@drawable/powerhub_preference_background_phone</item>
+    </style>
+    <!-- General -->
+    <style name="powerhubPreferenceBase">
+        <item name="android:layout_marginStart">@dimen/powerhub_pref_horizontal_padding</item>
+        <item name="android:layout_marginEnd">@dimen/powerhub_pref_horizontal_padding</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+    <style name="powerhubPreferenceTop" parent="powerhubPreferenceBase">
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:background">@drawable/powerhub_preference_background_top</item>
+    </style>
+    <style name="powerhubPreferenceMiddle" parent="powerhubPreferenceBase">
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:background">@drawable/powerhub_preference_background_middle</item>
+    </style>
+    <style name="powerhubPreferenceBottom" parent="powerhubPreferenceBase">
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/powerhub_preference_background_bottom</item>
+    </style>
+    <style name="powerhubPreferenceFull" parent="powerhubPreferenceBase">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/powerhub_preference_background_full</item>
+    </style>
+    <style name="powerhubPreferenceFullAccent" parent="powerhubPreferenceBase">
+        <item name="android:layout_marginTop">@dimen/powerhub_pref_horizontal_padding</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/powerhub_preference_background_full_accent</item>
+    </style>
 
 </resources>

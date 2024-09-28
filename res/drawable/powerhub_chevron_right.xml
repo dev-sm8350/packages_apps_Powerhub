@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2021 VoltageOS
+<!--
+     Copyright 2021 xdroid, xyzprjkt
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
      You may obtain a copy of the License at
@@ -10,15 +11,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/statusbar_title"
-    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
-	
-       <Preference
-        android:key="systemui_tuner_statusbar"
-        android:title="@string/statusbar_items_category" >
-        <intent android:action="com.android.settings.action.STATUS_BAR_TUNER" />
-        </Preference>
-
-</PreferenceScreen>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:pathData="M0 0h24v24H0V0z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M9.31 6.71c-0.39 0.39 -0.39 1.02 0 1.41L13.19 12l-3.88 3.88c-0.39 0.39 -0.39 1.02 0 1.41 0.39 0.39 1.02 0.39 1.41 0l4.59-4.59c0.39-0.39 0.39 -1.02 0-1.41L10.72 6.7c-0.38-0.38-1.02-0.38-1.41 0.01 z" />
+</vector>

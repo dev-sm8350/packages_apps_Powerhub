@@ -26,11 +26,11 @@ import android.text.TextUtils;
 import android.view.View;
 
 import com.android.settings.SettingsPreferenceFragment;
-import com.power.hub.preferences.CustomSeekBarPreference;
-import com.power.hub.preferences.SystemSettingSeekBarPreference;
-import com.power.hub.preferences.SystemSettingListPreference;
-import com.power.hub.preferences.SystemSettingSwitchPreference;
-import com.power.hub.preferences.SystemSettingMasterSwitchPreference;
+import com.voltage.support.preferences.CustomSeekBarPreference;
+import com.voltage.support.preferences.SystemSettingSeekBarPreference;
+import com.voltage.support.preferences.SystemSettingListPreference;
+import com.voltage.support.preferences.SystemSettingSwitchPreference;
+import com.voltage.support.preferences.SystemSettingMasterSwitchPreference;
 import com.android.settings.Utils;
 import com.android.internal.util.voltage.VoltageUtils;
 import android.util.Log;

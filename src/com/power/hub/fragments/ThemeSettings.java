@@ -34,7 +34,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.PreferenceManager;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.SwitchPreference;
-import com.power.hub.preferences.CustomSeekBarPreference;
+import com.voltage.support.preferences.CustomSeekBarPreference;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.search.SearchIndexable;
 import com.android.settingslib.core.lifecycle.Lifecycle;
@@ -59,9 +59,9 @@ import java.util.Objects;
 
 import com.android.internal.util.voltage.VoltageUtils;
 import com.android.settings.dashboard.DashboardFragment;
-import com.power.hub.preferences.SystemSettingListPreference;
-import com.power.hub.preferences.SystemSettingSwitchPreference;
-import net.margaritov.preference.colorpicker.ColorPickerPreference;
+import com.voltage.support.preferences.SystemSettingListPreference;
+import com.voltage.support.preferences.SystemSettingSwitchPreference;
+import com.voltage.support.colorpicker.ColorPickerPreference;
 
 @SearchIndexable(forTarget = SearchIndexable.ALL & ~SearchIndexable.ARC)
 public class ThemeSettings extends DashboardFragment implements OnPreferenceChangeListener {

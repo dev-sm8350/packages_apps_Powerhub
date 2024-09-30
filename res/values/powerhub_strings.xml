@@ -138,4 +138,15 @@
     <string name="lockscreen_gesture_title">Gestures</string>
     <string name="double_tap_to_sleep_lockscreen_title">Double tap to sleep</string>
     <string name="double_tap_to_sleep_lockscreen_summary">Double tap on the top third or bottom shortcut area of the lock screen to put the device to sleep</string>
+
+    <!-- Battery customizations -->
+    <string name="battery_settings_title">Battery Settings</string>   
+    <string name="battery_options">Battery</string>
+    <string name="battery_style_title">Battery Style</string>
+    <string name="battery_style_port">Portrait</string>
+    <string name="battery_style_circle">Circle</string>
+    <string name="battery_style_text">Text</string>
+    <string name="battery_percent_title">Show percent</string>
+    <string name="battery_percent_summary">Always show the battery percent with the icon</string>
+
 </resources>

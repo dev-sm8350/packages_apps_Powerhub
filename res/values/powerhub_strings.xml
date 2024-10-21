@@ -21,7 +21,7 @@
     <string name="gestures_summary">Jump to camera, swipe to screenshot</string>
     <string name="lockscreen_title">Lock screen</string>
     <string name="lockscreen_summary">Music visualizer, charging animation, clock style</string>
-    <string name="misc_title">Miscellaneous</string>
+    <string name="misc_title">System</string>
     <string name="misc_summary">Gaming mode, volume controls</string>
     <string name="animations_title">Animations</string>
     <string name="animations_summary">System animations</string>

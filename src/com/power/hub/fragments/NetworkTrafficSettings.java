@@ -58,7 +58,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
         mNetTrafficRefreshInterval = (CustomSeekBarPreference)
                 findPreference(Settings.System.NETWORK_TRAFFIC_REFRESH_INTERVAL);
         mNetTrafficLocation = (ListPreference)
-                findPreference(Settings.System.NETWORK_TRAFFIC_LOCATION);
+                findPreference(Settings.System.NETWORK_TRAFFIC_ENABLED);
         mNetTrafficLocation.setOnPreferenceChangeListener(this);
         mNetTrafficMode = (ListPreference)
                 findPreference(Settings.System.NETWORK_TRAFFIC_MODE);
@@ -70,7 +70,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
                 findPreference(Settings.System.NETWORK_TRAFFIC_HIDEARROW);
 
         int location = Settings.System.getIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_LOCATION, 0, UserHandle.USER_CURRENT);
+                Settings.System.NETWORK_TRAFFIC_ENABLED, 0, UserHandle.USER_CURRENT);
         updateEnabledStates(location);
     }
 
@@ -97,7 +97,7 @@ public class NetworkTrafficSettings extends SettingsPreferenceFragment
     public static void reset(Context mContext) {
         ContentResolver resolver = mContext.getContentResolver();
         Settings.System.putIntForUser(resolver,
-                Settings.System.NETWORK_TRAFFIC_LOCATION, 0, UserHandle.USER_CURRENT);
+                Settings.System.NETWORK_TRAFFIC_ENABLED, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_MODE, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(resolver,

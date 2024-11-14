@@ -51,6 +51,7 @@
     <string name="save">Save</string>
     <string name="default_string">Default</string>
     <string name="disabled">Disabled</string>
+    <string name="enable">Enable</string>
 
     <!-- Units -->
     <string name="unit_seconds">seconds</string>
